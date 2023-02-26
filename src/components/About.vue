@@ -1,5 +1,5 @@
 <template>
-  <div style="weight:100%; height: 2500px;">
+  <div style="weight:100%; height: 3400px;">
     <div class="box_relative ">
       <div style="height:700px; width:100%; ">
         <img style="height: 418px" src="../assets/about-us-bg.png" alt="">
@@ -109,6 +109,40 @@
         </div>
       </div>
     </div>
+    <div style="width: 100%;height:780px;background-color: #f8fbfd; ">
+      <div style="text-align: center;padding-top: 50px;">
+        <p class="future-title">品牌故事</p>
+      </div>
+      <div style="padding-top: 60px">
+       <div style="margin: 0 auto; width: 800px">
+         <el-carousel height="400px" direction="vertical" :autoplay="false">
+           <el-carousel-item v-for="item in imglist2" :key="item.id">
+             <img :src="item.url" height="400px" alt="">
+           </el-carousel-item>
+         </el-carousel>
+       </div>
+      </div>
+
+    </div>
+    <div style="width: 100%;height:380px;background-color: #fff; ">
+      <div style="text-align: center;padding-top: 50px;">
+        <p class="future-title">鸣谢</p>
+      </div>
+      <div style="padding-top: 60px">
+        <el-row :gutter="20">
+          <el-col :span="6" :offset="2">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+          </el-col>
+          <el-col :span="6" :offset="1">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+          </el-col>
+          <el-col :span="6" :offset="1">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+          </el-col>
+        </el-row>
+      </div>
+
+    </div>
   </div>
 
 </template>
@@ -122,6 +156,24 @@ export default {
     return {
       message: '',
       imgList: [
+        {
+          id: '1',
+          url: require('../assets/carousel-img-1.png'),
+
+        },
+        {
+          id: '2',
+          url: require('../assets/carousel-img-2.png'),
+        },
+        {
+          id: '3',
+          url: require('../assets/carousel-img-3.png'),
+        },
+        {
+          id: '4',
+          url: require('../assets/carousel-img-4.png'),
+        }],
+      imglist2: [
         {
           id: '1',
           url: require('../assets/carousel-img-1.png'),
@@ -282,16 +334,16 @@ export default {
 
 .dot{
   border:2px solid #007Aff;
-  width: 5px;
-  height: 4px;
-  border-radius: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 9px;
   background: white;
   margin: auto;
-  margin-bottom: -6px;
+  margin-bottom: -8px;
 }
 .item{
   flex:2;
 
-  border-bottom:2px solid #7ab3d5;
+  border-bottom:3px solid #7ab3d5;
 }
 </style>
