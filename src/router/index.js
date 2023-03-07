@@ -7,6 +7,8 @@ import Culture from '@/components/Culture'
 import Mourn from '@/components/Mourn'
 import Register from "@/components/Register"
 import UserSpace from "@/components/UserSpace"
+import Online from "@/components/Online"
+
 Vue.use(Router);
 
 const router =  new Router({
@@ -42,7 +44,11 @@ const router =  new Router({
 		path: "/register",
 		name: "Register",
 		component: Register
-	}
+	},{
+      path: "/online",
+      name: "Online",
+      component: Online
+    }
   ]
 })
 

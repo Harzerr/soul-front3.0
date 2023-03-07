@@ -79,11 +79,11 @@
 			<!-- 选项 -->
 			<ol class="basic_exhibition_choice">
 				<li v-for="(item, index) of basics" @click="myChange(index)" v-if="index == 0" class="item active">
-					<img :src="item.src" /> 
+					<img :src="item.src" />
 					<i>{{item.title}}</i>
 				</li>
 				<li class="item" v-for="(item, index) of basics" @click="myChange(index)" v-if="index != 0">
-					<img :src="item.src" /> 
+					<img :src="item.src" />
 					<i>{{item.title}}</i>
 				</li>
 			</ol>
@@ -94,7 +94,7 @@
 			</span>
 		</div>
 		<!-- 搜索 -->
-		<soulsearch></soulsearch>
+		<soulsearch :issearch="true"></soulsearch>
 	</div>
 </template>
 
@@ -111,7 +111,7 @@
 				timer: null,
 				nowIndex: 0,
 				basics: [
-					{	
+					{
 						src: "../../static/img/basic/basic_0.jpg",
 						title: "序厅",
 						text: ""
@@ -156,7 +156,7 @@
 			this.img_lis[0].classList.add("active");
 			let basic_exhibition_choice = document.getElementsByClassName("basic_exhibition_choice")[0];
 			this.items = basic_exhibition_choice.getElementsByClassName("item");
-			
+
 		},
 		beforeDestroy() {
 			clearInterval(this.timer);
@@ -185,43 +185,43 @@
 				var flag = true;
 				var index = 0;
 				var point_li = document.querySelectorAll('.point_li');
-				
+
 				function changeClassr() {
 					var pre_02 = document.querySelector(".pre_02");
 					var pre_01 = document.querySelector(".pre_01");
 					var now = document.querySelector(".now");
 					var next_01 = document.querySelector(".next_01");
 					var next_02 = document.querySelector(".next_02");
-				
+
 					now.className = 'pre_01';
-				
+
 					pre_01.className = 'pre_02';
-				
+
 					pre_02.className = 'next_02';
-				
+
 					next_02.className = 'next_01';
-				
+
 					next_01.className = 'now';
-				
+
 				}
-				
+
 				function changeClassl() {
 					var pre_02 = document.querySelector(".pre_02");
 					var pre_01 = document.querySelector(".pre_01");
 					var now = document.querySelector(".now");
 					var next_01 = document.querySelector(".next_01");
 					var next_02 = document.querySelector(".next_02");
-				
+
 					now.className = 'next_01';
-				
+
 					pre_01.className = 'now';
-				
+
 					pre_02.className = 'pre_01';
-				
+
 					next_02.className = 'pre_02';
-				
+
 					next_01.className = 'next_02';
-				
+
 				}
 				// 右侧
 				right_a.addEventListener('click', function() {
@@ -235,10 +235,10 @@
 					}
 					point_li[index].className = "point_li li_now";
 				})
-				
+
 				// 左侧
 				left_a.addEventListener('click', function() {
-				
+
 					if (index <= 0) {
 						index = point_li.length;
 					}
@@ -248,14 +248,14 @@
 						point_li[i].className = "point_li";
 					}
 					point_li[index].className = "point_li li_now";
-				
+
 				})
-				
+
 				// 自动轮播
 				this.timer = setInterval(() => {
 					right_a.click();
 				}, 2000);
-				
+
 				var lunbo_box = document.querySelector(".the_img_wrap");
 				lunbo_box.addEventListener('mouseenter', () => {
 					clearInterval(this.timer);
@@ -266,7 +266,7 @@
 					}, 2000);
 				});
 			}
-			
+
 		}
 	}
 </script>
@@ -275,8 +275,8 @@
 		font-style: normal;
 	}
 	#lunbo_wrap {
+    overflow: hidden;
 		width: 100%;
-		min-width: 100%;
 		margin: 20px auto;
 		margin-top: 50px !important;
 		position: relative;
@@ -287,13 +287,13 @@
 
 	#lunbo_wrap .lunbo {
 		position: relative;
-		width: calc(2*700px);
-		height: calc(2*284px);
+		width: calc(1.5*700px);
+		height: calc(1.5*284px);
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap {
 		width: inherit;
-		height: calc(2*234px);
+		height: calc(1.5*234px);
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -304,22 +304,22 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		height: calc(2*(284px - 234px));
-		width: 100%;
+		height: calc(1.5*(284px - 234px));
+		width: 1000px;
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap img {
 		width: 100%;
 		height: 100%;
-		cursor: pointer !important; 
+		cursor: pointer !important;
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap .now {
 		position: absolute;
 		z-index: 50;
-		width: calc(2*496px);
+		width: calc(1.5*496px);
 		height: 100%;
-		left: calc(2*102px);
+		left: calc(1.5*102px);
 		top: 50%;
 		transform: translateY(-50%);
 		cursor: pointer !important;
@@ -329,8 +329,8 @@
 	#lunbo_wrap .lunbo .the_img_wrap .pre_01 {
 		position: absolute;
 		z-index: 30;
-		width: calc(2*427px);
-		height: calc(2*198px);
+		width: calc(1.5*427px);
+		height: calc(1.5*198px);
 		top: 50%;
 		transform: translateY(-50%);
 	}
@@ -339,8 +339,8 @@
 	#lunbo_wrap .lunbo .the_img_wrap .pre_02 {
 		position: absolute;
 		z-index: 10;
-		width: calc(2*366px);
-		height: calc(2*170px);
+		width: calc(1.5*366px);
+		height: calc(1.5*170px);
 		top: 50%;
 		transform: translateY(-50%);
 	}
@@ -350,15 +350,15 @@
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap .pre_02 {
-		left: calc(2*(-100px));
+		left: calc(1.5*(-100px));
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap .next_01 {
-		left: calc(2*273px);
+		left: calc(1.5*273px);
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap .next_02 {
-		left: calc(2*434px);
+		left: calc(1.5*434px);
 	}
 
 	#lunbo_wrap .lunbo .the_img_wrap div {
@@ -438,8 +438,7 @@
 		background-color: deepskyblue;
 	}
 	.home_icon{
-		max-width: 1500px;
-		min-width: 1204px;
+		width: 100%;
 		margin: 0 auto;
 	}
 	.home_icon .icon_ul{
@@ -464,7 +463,8 @@
 		margin-top: 5px;
 	}
 	.basic_exhibition{
-		width: 1204px;
+		width: 80%;
+    max-width: 1200px;
 		height: 560px;
 		background-color: aqua;
 		position: relative;
@@ -482,7 +482,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		transition: opacity .5s; 
+		transition: opacity .5s;
 		opacity: 0;
 	}
 	.basic_exhibition .basic_exhibition_ul li.active{
@@ -507,22 +507,24 @@
 		align-items: center;
 		height: 100%;
 		cursor: pointer;
-		margin-left: 50px;
+		margin-left: 20px;
 	}
 	.basic_exhibition .basic_exhibition_choice li img{
-		width: 60px;
-		height: 60px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
 		border: 2px solid #eee;
 	}
 	.basic_exhibition .basic_exhibition_choice li i{
 		color: white;
+    font-weight: 100;
+    font-size: 13px;
 	}
 	.basic_exhibition .basic_exhibition_choice li.active img{
-		border: 3px solid red;
+		border: 3px solid mediumseagreen;
 	}
 	.basic_exhibition .basic_exhibition_choice li.active i{
-		color: red;
+		color: mediumseagreen;
 	}
 	.basic_exhibition .msg_active{
 		position: absolute;

@@ -16,7 +16,7 @@
 		name: "Footer",
 		data() {
 			return {
-				
+
 			}
 		}
 	}
@@ -26,7 +26,6 @@
 	.footer-wrap{
 		width: 100%;
 		height: 60px;
-		min-width: 1200px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

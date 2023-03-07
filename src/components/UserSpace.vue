@@ -188,16 +188,15 @@ export default {
     onSubmit() {
       this.$refs['form'].validate((valid)=>{
         if(valid){
-          this.$axios({
+          this.$http({
             method:"post",
-            url:"http://localhost:8090/user/update",
+            url:"/user/update",
             headers: {
               "Content-Type": "multipart/form-data"
             },
             withCredentials:true,
             data: this.form,
           }).then((res)=>{
-            console.log(res.data);
             if(res.data || res.data !='' || res.data.length() != 0){
 
               this.$notify({
@@ -205,7 +204,9 @@ export default {
                 message: '修改成功',
                 type: 'success'
               });
-              console.log(res.data);
+              this.user = this.form;
+              const userString = JSON.stringify(this.user);
+              localStorage.setItem("user", userString);
             }
             else{
               this.$notify.error({

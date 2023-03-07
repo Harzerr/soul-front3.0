@@ -18,7 +18,7 @@ window.addEventListener("load", function(){
 	canvas.style.top = "0";
 	//向根节点添加画布节点
 	app.append(canvas);
-	
+
 	//樱花对象 x, y, r, s, steep宽高旋转缩放速度
 	function Sakura(x, y, r, s, steep){
 		this.x = x;
@@ -70,7 +70,11 @@ window.addEventListener("load", function(){
 	draw();
 	//当页面大小缩放时
 	function resize(){
-		canvas.width = document.body.clientWidth;
+		if (document.body.clientWidth > 1000){
+      canvas.width = document.body.clientWidth;
+    }else {
+      canvas.width = 1000;
+    }
 		canvas.height = document.body.clientHeight;
 		draw();
 	}
@@ -79,9 +83,8 @@ window.addEventListener("load", function(){
 	});
 	resize();
 	setInterval(()=>{
-		if(canvas.width != document.body.clientWidth || canvas.height != document.body.clientHeight){
-			canvas.width = document.body.clientWidth;
-			canvas.height = document.body.clientHeight;
-		}
-	}, 1000);
+		if (document.body.clientWidth !== canvas.width || document.body.clientHeight !== canvas.height){
+      resize();
+    }
+	}, 2000);
 });

@@ -8,9 +8,9 @@ const http = axios.create({
 });
 
 http.interceptors.request.use((config)=>{
-	
+
 	let user = JSON.parse(localStorage.getItem("user"));
-	
+
 	if(user != null){
 		config.headers['token'] = user.token;
 	}else{
@@ -19,13 +19,13 @@ http.interceptors.request.use((config)=>{
 		// 	message: "无token, 请登录"
 		// })
 	}
-	
+
 	return config;
 })
 
 http.interceptors.response.use((res)=>{
 	console.log(res);
-	
+
 	return res;
 }, (err) => {
 	if(err.response.status == 500){

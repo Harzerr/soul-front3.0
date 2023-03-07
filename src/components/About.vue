@@ -1,20 +1,28 @@
 <template>
-  <div style="weight:100%; height: 3400px;">
-    <div class="box_relative ">
-      <div style="height:700px; width:100%; ">
-        <img style="height: 418px" src="../assets/about-us-bg.png" alt="">
-        <img style="position:absolute; top:150px; left:12%;weight:100%; height: 91px"
+  <div class="about-wrap" style="width:100%;overflow: hidden">
+    <div class="box_relative" style="width:100%;">
+      <div style="width:inherit; overflow: hidden">
+        <img style="height: 418px; width: 100%;object-fit: cover;" src="../../static/img/imgabout.jpg"/>
+        <img style="position:absolute;top:150px;left:12%;height:91px;object-fit: cover;"
              src="../assets/about-us-title.png">
       </div>
     </div>
-    <div style="width: 100%;height:650px;background-color: #fff; margin-top: 340px;">
+    <div style="width: 100%;height:650px;background-color: #fff;">
       <div>
-        <el-row :gutter="20">
-          <el-col :span="6" :offset="3">
-            <div style="margin-top: 150px" class="future-title">Soul与您共创未来</div>
+        <el-row :gutter="20" style="display: flex; justify-content: center">
+          <el-col :span="6" :offset="3" style="padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+    text-indent: 2em;
+margin: 0 !important;">
+            <div style="margin-top: 150px;text-indent: 0;padding: 0;font-size: 30px;" class="future-title">甘肃英烈网与您回忆往昔</div>
             <div style="margin-top: 5px; margin-left:90px; background-color: #0094ff; height: 10px; weight:10px"></div>
             <div style="margin-top: 40px; margin-left:100px;width: 550px; font-size: 20px; font-family:Helvetica Neue">
-              “SOUL”在线网络纪念空间项目小组是西北师范大学计算机科学与工程学院的一个项目，初期是以解决祭祀带来的环境污染为出发点，经过团队的多次讨论，结合目前的国内环境，自身的能力出发，决心打造一个以网上纪念亲友，革命烈士，社会英雄，同时传承我国的优秀文化的服务平台。
+              甘肃英烈网项目小组是西北师范大学计算机科学与工程学院的一个项目，初期是以解决祭祀带来的环境污染为出发点，经过团队的多次讨论，结合目前的国内环境，自身的能力出发，决心打造一个以网上纪念亲友，革命烈士，社会英雄，同时传承我国的优秀文化的服务平台。
             </div>
           </el-col>
           <el-col :span="6" :offset="5">
@@ -131,13 +139,13 @@
       <div style="padding-top: 60px">
         <el-row :gutter="20">
           <el-col :span="6" :offset="2">
-            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/head1.jpg">
           </el-col>
           <el-col :span="6" :offset="1">
-            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/head2.jpg">
           </el-col>
           <el-col :span="6" :offset="1">
-            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/carousel-img-4.png">
+            <img style="width: 120px; height:120px; border-radius:10px;" src="../assets/head3.jpg">
           </el-col>
         </el-row>
       </div>
@@ -158,38 +166,38 @@ export default {
       imgList: [
         {
           id: '1',
-          url: require('../assets/carousel-img-1.png'),
+          url: require('../assets/carousel-img-1.jpg'),
 
         },
         {
           id: '2',
-          url: require('../assets/carousel-img-2.png'),
+          url: require('../assets/carousel-img-2.jpg'),
         },
         {
           id: '3',
-          url: require('../assets/carousel-img-3.png'),
+          url: require('../assets/carousel-img-3.jpg'),
         },
         {
           id: '4',
-          url: require('../assets/carousel-img-4.png'),
+          url: require('../assets/carousel-img-4.jpg'),
         }],
       imglist2: [
         {
           id: '1',
-          url: require('../assets/carousel-img-1.png'),
+          url: require('../assets/carousel-img-1.jpg'),
 
         },
         {
           id: '2',
-          url: require('../assets/carousel-img-2.png'),
+          url: require('../assets/carousel-img-2.jpg'),
         },
         {
           id: '3',
-          url: require('../assets/carousel-img-3.png'),
+          url: require('../assets/carousel-img-3.jpg'),
         },
         {
           id: '4',
-          url: require('../assets/carousel-img-4.png'),
+          url: require('../assets/carousel-img-4.jpg'),
         }]
     }
   },
@@ -206,12 +214,9 @@ export default {
 }
 </script>
 <style>
-.box_relative {
-  position: absolute;
-  left: 0;
-  top: 0;
+.about-wrap{
+  position: relative;
 }
-
 .future-title {
   font-size: 40px;
   font-weight: 700;
@@ -268,12 +273,14 @@ export default {
 }
 
 .about_conpany_culture_card_item_content {
-  font-size: 14px;
-  font-weight: 400;
-  /*color: #333;*/
-  margin-top: 20px;
-  width: 30px;
-  padding-left: 20px;
+  width: 100% !important;
+  text-align: start !important;
+  white-space: break-spaces !important;
+  text-indent: 2em !important;
+  margin-top: 20px !important;
+  font-size: 16px !important;
+  letter-spacing: 5px !important;
+  font-weight: 100 !important;
 }
 
 .about_conpany_culture_card_item_icon {
@@ -293,7 +300,10 @@ export default {
   background: rgb(15, 112, 250) !important;
   font-weight: bold;
 }
-
+img{
+  object-fit: cover;
+  background-position: center;
+}
 .el-button:hover {
   background: #1777ff !important;
   color: white !important;

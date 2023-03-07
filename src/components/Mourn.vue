@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <div>
-      这里定义"人物悼念"的页面
-    </div>
+  <div id="mourn">
+    <soulsearch :issearch="true"></soulsearch>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
+import soulsearch from "./Sreach"
 
 export default {
   name: 'HelloWorld1',
+  components: {
+    soulsearch
+  },
   data () {
     return {
       message: ''

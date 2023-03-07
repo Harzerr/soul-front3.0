@@ -13,7 +13,7 @@
 						<router-link class="el-a" to="/home">主页</router-link>
 					</el-menu-item>
 					<el-menu-item class="top-nav-li" index="2">
-						<router-link class="el-a" to="/about">关于Soul</router-link>
+						<router-link class="el-a" to="/about">关于我们</router-link>
 					</el-menu-item>
 					<el-menu-item class="top-nav-li" index="3">
 						<router-link class="el-a" to="/culture">史料研究</router-link>
@@ -21,6 +21,9 @@
 					<el-menu-item class="top-nav-li" index="4">
 						<router-link class="el-a" to="/mourn">缅怀英烈</router-link>
 					</el-menu-item>
+          <el-menu-item class="top-nav-li" index="5">
+            <router-link class="el-a" to="/online">网上祭扫</router-link>
+          </el-menu-item>
 				</el-menu>
 			</el-col>
 			<div class="headimg-wrap">
@@ -54,7 +57,6 @@
 </template>
 
 <script>
-	import axios from 'axios';
 	import Footer from "@/components/Footer.vue"
 	export default {
 		name: 'App',
@@ -82,6 +84,11 @@
 			}
 			this.windowScroll();
 			this.navChange();
+
+      window.addEventListener("load", ()=>{
+        this.$router.push("/home");
+      });
+
 		},
 		beforeDestroy() {
 
@@ -175,6 +182,10 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: #2c3e50;
+    min-width: 1000px;
+    background-image: url(../static/img/home_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 	}
 	.backTop{
 		display: block;
@@ -224,13 +235,13 @@
 		top: 0;
 		left: 0;
 		z-index: 999;
-		min-width: 1300px;
 		min-height: 60px;
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: rgba(0, 0, 0, 0.5) !important;
+		background: url(../static/img/nav_bg.jpg) no-repeat;
+    background-size: cover;
 	}
 
 	.el-menu {
@@ -271,7 +282,6 @@
 		color: white !important;
 		border-bottom: 2px solid #409EFF !important;
 	}
-
 	.el-menu--horizontal>.el-menu-item:not(.is-disabled):focus,
 	.el-menu--horizontal>.el-menu-item:not(.is-disabled):hover,
 	.el-menu--horizontal>.el-submenu .el-submenu__title:hover {
@@ -285,5 +295,11 @@
 
 	.el-menu-item a {
 		padding: 0 30px;
+    color: white !important;
 	}
+  /*#topNav{*/
+  /*  position: fixed;*/
+  /*  top: 0;*/
+  /*  left: 0;*/
+  /*}*/
 </style>
